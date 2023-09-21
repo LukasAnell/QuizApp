@@ -1,0 +1,102 @@
+[
+  {
+    "question": "How many gameticks do mobs spawned in portals exist for before they are teleported to the opposite dimension?",
+    "choices": [
+      "2 gt",
+      "4 gt",
+      "6 gt",
+      "8 gt"
+    ],
+    "answer": "2 gt"
+  },
+  {
+    "question": "How many items per hour can a hopper transport?",
+    "choices": [
+      "2,000",
+      "5,000",
+      "9,000",
+      "15,000"
+    ],
+    "answer": "9,000"
+  },
+  {
+    "question": "How often can villagers summon an iron golem?",
+    "choices": [
+      "700 gt",
+      "100 gt",
+      "1,000 gt",
+      "500 gt"
+    ],
+    "answer": "700 gt"
+  },
+  {
+    "question": "How many items can you fit in a shulker box?",
+    "choices": [
+      "1,728",
+      "65,536",
+      "4,096",
+      "3,456"
+    ],
+    "answer": "1,728"
+  },
+  {
+    "question": "How many time(s) can minecarts snap to rails vertically in one gametick?",
+    "choices": [
+      "1 time",
+      "2 times",
+      "3 times",
+      "4 times"
+    ],
+    "answer": "2 times"
+  },
+  {
+    "question": "What is Evan An’s Minecraft Username?",
+    "choices": [
+      "zaqxswcdevfr",
+      "Leaf_Ask",
+      "EvanAn",
+      "EvenAnd"
+    ],
+    "answer": "Leaf_Ask"
+  },
+  {
+    "question": "What is the radius of the despawn sphere?",
+    "choices": [
+      "24 blocks",
+      "128 blocks",
+      "64 blocks",
+      "32 blocks"
+    ],
+    "answer": "128 blocks"
+  },
+  {
+    "question": "How long is the item despawn timer?",
+    "choices": [
+      "10 minutes",
+      "15 minutes",
+      "5 minutes",
+      "1 minute"
+    ],
+    "answer": "5 minutes"
+  },
+  {
+    "question": "How many gameticks is equal to one redstone tick?",
+    "choices": [
+      "4 gt",
+      "10 gt",
+      "6 gt",
+      "2 gt"
+    ],
+    "answer": "2 gt"
+  },
+  {
+    "question": "What block behaves similar to pistons?",
+    "choices": [
+      "Redstone Lamp",
+      "Iron Door",
+      "Redstone Repeater",
+      "Observer"
+    ],
+    "answer": "Iron Door"
+  }
+]
