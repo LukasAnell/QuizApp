@@ -29,8 +29,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         wireWidgets()
         resizeButtonText(30.0F)
-        textViewQuestion.text = "Score: $score"
-        textViewQuestion.textSize = 10.0F
+        textViewQuestion.textSize = 15.0F
+        textViewScore.text = "Score: $score"
+        textViewScore.textSize = 15.0F
 
         // load questions from JSON (we will learn how to do this next class)
         val inputStream = resources.openRawResource(R.raw.questions)
@@ -49,27 +50,104 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG, "Q: ${newQuiz.questions[0].question}\nC:${newQuiz.questions[0].choices}\nA:${newQuiz.questions[0].answer}")
 
         // do the initial question & answer choices setup
-        for(i in 0..<newQuiz.questions.size) {
-            textViewQuestion.text = newQuiz.questions[i].question
-            buttonChoiceOne.text = newQuiz.questions[i].choices[0]
-            buttonChoiceTwo.text = newQuiz.questions[i].choices[1]
-            buttonChoiceThree.text = newQuiz.questions[i].choices[2]
-            buttonChoiceFour.text = newQuiz.questions[i].choices[3]
-            buttonChoiceOne.setOnClickListener {
-                score += newQuiz.checkAnswer(i, 0)
+
+        var questionNumber = 0
+
+        textViewQuestion.text = newQuiz.getQuestion(questionNumber)
+        var choices = newQuiz.getChoices(questionNumber)
+        buttonChoiceOne.text = choices[0]
+        buttonChoiceTwo.text = choices[1]
+        buttonChoiceThree.text = choices[2]
+        buttonChoiceFour.text = choices[3]
+
+        buttonChoiceOne.setOnClickListener {
+            if(questionNumber < newQuiz.questions.size - 1) {
+                score += newQuiz.checkAnswer(questionNumber, 0)
+                questionNumber++
+                textViewQuestion.text = newQuiz.getQuestion(questionNumber)
+                choices = newQuiz.getChoices(questionNumber)
+                buttonChoiceOne.text = choices[0]
+                buttonChoiceTwo.text = choices[1]
+                buttonChoiceThree.text = choices[2]
+                buttonChoiceFour.text = choices[3]
+                textViewScore.text = "Score: $score"
+                Log.d(TAG, "Score: $score")
+            } else {
+                buttonChoiceOne.text = "Done!"
+                buttonChoiceTwo.text = "Done!"
+                buttonChoiceThree.text = "Done!"
+                buttonChoiceFour.text = "Done!"
+                textViewQuestion.text = ""
+                textViewScore.textSize = 30.0F
+                textViewScore.text = "Score: $score"
             }
-            buttonChoiceTwo.setOnClickListener {
-                score += newQuiz.checkAnswer(i, 1)
-            }
-            buttonChoiceThree.setOnClickListener {
-                score += newQuiz.checkAnswer(i, 2)
-            }
-            buttonChoiceFour.setOnClickListener {
-                score += newQuiz.checkAnswer(i, 3)
-            }
-            textViewScore.text = "Score: $score"
         }
-        Log.d(TAG, "Score: $score")
+        buttonChoiceTwo.setOnClickListener {
+            if(questionNumber < newQuiz.questions.size - 1) {
+                score += newQuiz.checkAnswer(questionNumber, 1)
+                questionNumber++
+                textViewQuestion.text = newQuiz.getQuestion(questionNumber)
+                choices = newQuiz.getChoices(questionNumber)
+                buttonChoiceOne.text = choices[0]
+                buttonChoiceTwo.text = choices[1]
+                buttonChoiceThree.text = choices[2]
+                buttonChoiceFour.text = choices[3]
+                textViewScore.text = "Score: $score"
+                Log.d(TAG, "Score: $score")
+            } else {
+                buttonChoiceOne.text = "Done!"
+                buttonChoiceTwo.text = "Done!"
+                buttonChoiceThree.text = "Done!"
+                buttonChoiceFour.text = "Done!"
+                textViewQuestion.text = ""
+                textViewScore.textSize = 30.0F
+                textViewScore.text = "Score: $score"
+            }
+        }
+        buttonChoiceThree.setOnClickListener {
+            if(questionNumber < newQuiz.questions.size - 1) {
+                score += newQuiz.checkAnswer(questionNumber, 2)
+                questionNumber++
+                textViewQuestion.text = newQuiz.getQuestion(questionNumber)
+                choices = newQuiz.getChoices(questionNumber)
+                buttonChoiceOne.text = choices[0]
+                buttonChoiceTwo.text = choices[1]
+                buttonChoiceThree.text = choices[2]
+                buttonChoiceFour.text = choices[3]
+                textViewScore.text = "Score: $score"
+                Log.d(TAG, "Score: $score")
+            } else {
+                buttonChoiceOne.text = "Done!"
+                buttonChoiceTwo.text = "Done!"
+                buttonChoiceThree.text = "Done!"
+                buttonChoiceFour.text = "Done!"
+                textViewQuestion.text = ""
+                textViewScore.textSize = 30.0F
+                textViewScore.text = "Score: $score"
+            }
+        }
+        buttonChoiceFour.setOnClickListener {
+            if(questionNumber < newQuiz.questions.size - 1) {
+                score += newQuiz.checkAnswer(questionNumber, 3)
+                questionNumber++
+                textViewQuestion.text = newQuiz.getQuestion(questionNumber)
+                choices = newQuiz.getChoices(questionNumber)
+                buttonChoiceOne.text = choices[0]
+                buttonChoiceTwo.text = choices[1]
+                buttonChoiceThree.text = choices[2]
+                buttonChoiceFour.text = choices[3]
+                textViewScore.text = "Score: $score"
+                Log.d(TAG, "Score: $score")
+            } else {
+                buttonChoiceOne.text = "Done!"
+                buttonChoiceTwo.text = "Done!"
+                buttonChoiceThree.text = "Done!"
+                buttonChoiceFour.text = "Done!"
+                textViewQuestion.text = ""
+                textViewScore.textSize = 30.0F
+                textViewScore.text = "Score: $score"
+            }
+        }
         // set listeners to react to user input
             // passing info to and from the Quiz object
     }
