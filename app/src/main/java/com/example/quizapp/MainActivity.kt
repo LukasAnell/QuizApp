@@ -73,6 +73,7 @@ class MainActivity : AppCompatActivity() {
                 textViewScore.text = "Score: $score"
                 Log.d(TAG, "Score: $score")
             } else {
+                score += newQuiz.checkAnswer(questionNumber, 0)
                 buttonChoiceOne.text = "Done!"
                 buttonChoiceTwo.text = "Done!"
                 buttonChoiceThree.text = "Done!"
@@ -95,6 +96,7 @@ class MainActivity : AppCompatActivity() {
                 textViewScore.text = "Score: $score"
                 Log.d(TAG, "Score: $score")
             } else {
+                score += newQuiz.checkAnswer(questionNumber, 1)
                 buttonChoiceOne.text = "Done!"
                 buttonChoiceTwo.text = "Done!"
                 buttonChoiceThree.text = "Done!"
@@ -117,6 +119,7 @@ class MainActivity : AppCompatActivity() {
                 textViewScore.text = "Score: $score"
                 Log.d(TAG, "Score: $score")
             } else {
+                score += newQuiz.checkAnswer(questionNumber, 2)
                 buttonChoiceOne.text = "Done!"
                 buttonChoiceTwo.text = "Done!"
                 buttonChoiceThree.text = "Done!"
@@ -139,6 +142,7 @@ class MainActivity : AppCompatActivity() {
                 textViewScore.text = "Score: $score"
                 Log.d(TAG, "Score: $score")
             } else {
+                score += newQuiz.checkAnswer(questionNumber, 3)
                 buttonChoiceOne.text = "Done!"
                 buttonChoiceTwo.text = "Done!"
                 buttonChoiceThree.text = "Done!"

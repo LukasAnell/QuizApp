@@ -1,0 +1,102 @@
+[
+  {
+    "question": "I Minecraft, hur många gametickar existerar mobs som skapats i portaler för innan de teleporteras till motsatt dimension?",
+    "choices": [
+      "2 gt",
+      "4 gt",
+      "6 gt",
+      "8 gt"
+    ],
+    "answer": "2 gt"
+  },
+  {
+    "question": "Hur många föremål per timme kan tratten transporteras?",
+    "choices": [
+      "2,000",
+      "5,000",
+      "9,000",
+      "15,000"
+    ],
+    "answer": "9,000"
+  },
+  {
+    "question": "Hur ofta kan bybor kalla fram en järngolem (i gametickar)?",
+    "choices": [
+      "700 gt",
+      "100 gt",
+      "1,000 gt",
+      "500 gt"
+    ],
+    "answer": "700 gt"
+  },
+  {
+    "question": "Hur många föremål får du plats i en shulkerlåda?",
+    "choices": [
+      "1,728",
+      "65,536",
+      "4,096",
+      "3,456"
+    ],
+    "answer": "1,728"
+  },
+  {
+    "question": "Hur många gånger kan minvagn snäppa till skenor vertikalt i en gametick?",
+    "choices": [
+      "1 gång",
+      "2 gånger",
+      "3 gånger",
+      "4 gånger"
+    ],
+    "answer": "2 gånger"
+  },
+  {
+    "question": "Vad är Evan Ans Minecraft-användarnamn",
+    "choices": [
+      "zaqxswcdevfr",
+      "Leaf_Ask",
+      "EvanAn",
+      "EvenAnd"
+    ],
+    "answer": "Leaf_Ask"
+  },
+  {
+    "question": "Vad är radien för despawn-sfären?",
+    "choices": [
+      "24 block",
+      "128 block",
+      "64 block",
+      "32 block"
+    ],
+    "answer": "128 block"
+  },
+  {
+    "question": "Hur lång är objektets despawn-timer (i minuter)?",
+    "choices": [
+      "10 minuter",
+      "15 minuter",
+      "5 minuter",
+      "1 minut"
+    ],
+    "answer": "5 minuter"
+  },
+  {
+    "question": "Hur många gametickar är lika med en redstone tick?",
+    "choices": [
+      "4 gt",
+      "10 gt",
+      "6 gt",
+      "2 gt"
+    ],
+    "answer": "2 gt"
+  },
+  {
+    "question": "Vilket block beter sig likt kolvar?",
+    "choices": [
+      "Redstone lampa",
+      "Järndörr",
+      "Redstone Repeater",
+      "Observatör"
+    ],
+    "answer": "Iron Door"
+  }
+]
