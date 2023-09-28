@@ -8,7 +8,6 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
     lateinit var layoutMain: ConstraintLayout
@@ -30,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         wireWidgets()
         resizeButtonText(30.0F)
         textViewQuestion.textSize = 15.0F
-        textViewScore.text = "Score: $score"
+        textViewScore.text = "${resources.getString(R.string.score)}: $score"
         textViewScore.textSize = 15.0F
 
         // load questions from JSON (we will learn how to do this next class)
@@ -70,17 +69,20 @@ class MainActivity : AppCompatActivity() {
                 buttonChoiceTwo.text = choices[1]
                 buttonChoiceThree.text = choices[2]
                 buttonChoiceFour.text = choices[3]
-                textViewScore.text = "Score: $score"
-                Log.d(TAG, "Score: $score")
+                textViewScore.text = "${resources.getString(R.string.score)}: $score"
+                Log.d(TAG, "${resources.getString(R.string.score)}: $score")
             } else {
-                score += newQuiz.checkAnswer(questionNumber, 0)
+                if(questionNumber == newQuiz.questions.size - 1) {
+                    score += newQuiz.checkAnswer(questionNumber, 0)
+                    questionNumber++
+                }
                 buttonChoiceOne.text = "Done!"
                 buttonChoiceTwo.text = "Done!"
                 buttonChoiceThree.text = "Done!"
                 buttonChoiceFour.text = "Done!"
                 textViewQuestion.text = ""
                 textViewScore.textSize = 30.0F
-                textViewScore.text = "Score: $score"
+                textViewScore.text = "${resources.getString(R.string.score)}: $score"
             }
         }
         buttonChoiceTwo.setOnClickListener {
@@ -93,17 +95,20 @@ class MainActivity : AppCompatActivity() {
                 buttonChoiceTwo.text = choices[1]
                 buttonChoiceThree.text = choices[2]
                 buttonChoiceFour.text = choices[3]
-                textViewScore.text = "Score: $score"
-                Log.d(TAG, "Score: $score")
+                textViewScore.text = "${resources.getString(R.string.score)}: $score"
+                Log.d(TAG, "${resources.getString(R.string.score)}: $score")
             } else {
-                score += newQuiz.checkAnswer(questionNumber, 1)
+                if(questionNumber == newQuiz.questions.size - 1) {
+                    score += newQuiz.checkAnswer(questionNumber, 1)
+                    questionNumber++
+                }
                 buttonChoiceOne.text = "Done!"
                 buttonChoiceTwo.text = "Done!"
                 buttonChoiceThree.text = "Done!"
                 buttonChoiceFour.text = "Done!"
                 textViewQuestion.text = ""
                 textViewScore.textSize = 30.0F
-                textViewScore.text = "Score: $score"
+                textViewScore.text = "${resources.getString(R.string.score)}: $score"
             }
         }
         buttonChoiceThree.setOnClickListener {
@@ -116,17 +121,20 @@ class MainActivity : AppCompatActivity() {
                 buttonChoiceTwo.text = choices[1]
                 buttonChoiceThree.text = choices[2]
                 buttonChoiceFour.text = choices[3]
-                textViewScore.text = "Score: $score"
-                Log.d(TAG, "Score: $score")
+                textViewScore.text = "${resources.getString(R.string.score)}: $score"
+                Log.d(TAG, "${resources.getString(R.string.score)}: $score")
             } else {
-                score += newQuiz.checkAnswer(questionNumber, 2)
+                if(questionNumber == newQuiz.questions.size - 1) {
+                    score += newQuiz.checkAnswer(questionNumber, 2)
+                    questionNumber++
+                }
                 buttonChoiceOne.text = "Done!"
                 buttonChoiceTwo.text = "Done!"
                 buttonChoiceThree.text = "Done!"
                 buttonChoiceFour.text = "Done!"
                 textViewQuestion.text = ""
                 textViewScore.textSize = 30.0F
-                textViewScore.text = "Score: $score"
+                textViewScore.text = "${resources.getString(R.string.score)}: $score"
             }
         }
         buttonChoiceFour.setOnClickListener {
@@ -139,17 +147,20 @@ class MainActivity : AppCompatActivity() {
                 buttonChoiceTwo.text = choices[1]
                 buttonChoiceThree.text = choices[2]
                 buttonChoiceFour.text = choices[3]
-                textViewScore.text = "Score: $score"
-                Log.d(TAG, "Score: $score")
+                textViewScore.text = "${resources.getString(R.string.score)}: $score"
+                Log.d(TAG, "${resources.getString(R.string.score)}: $score")
             } else {
-                score += newQuiz.checkAnswer(questionNumber, 3)
+                if(questionNumber == newQuiz.questions.size - 1) {
+                    score += newQuiz.checkAnswer(questionNumber, 3)
+                    questionNumber++
+                }
                 buttonChoiceOne.text = "Done!"
                 buttonChoiceTwo.text = "Done!"
                 buttonChoiceThree.text = "Done!"
                 buttonChoiceFour.text = "Done!"
                 textViewQuestion.text = ""
                 textViewScore.textSize = 30.0F
-                textViewScore.text = "Score: $score"
+                textViewScore.text = "${resources.getString(R.string.score)}: $score"
             }
         }
         // set listeners to react to user input
