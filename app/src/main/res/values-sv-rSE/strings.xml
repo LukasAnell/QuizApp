@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">QuizApp</string>
+    <string name="optionOne">OptionEtt</string>
+    <string name="optionTwo">OptionTvå</string>
+    <string name="optionThree">OptionTre</string>
+    <string name="optionFour">OptionFyra</string>
+    <string name="score">Poäng</string>
+    <string name="question">Fråga</string>
+</resources>

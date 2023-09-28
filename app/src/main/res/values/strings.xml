@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">QuizApp</string>
+    <string name="optionOne">OptionOne</string>
+    <string name="optionTwo">OptionTwo</string>
+    <string name="optionThree">OptionThree</string>
+    <string name="optionFour">OptionFour</string>
+    <string name="score">Score</string>
+    <string name="question">Question</string>
 </resources>
