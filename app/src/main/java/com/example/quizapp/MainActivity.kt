@@ -17,7 +17,6 @@ class MainActivity : AppCompatActivity() {
     lateinit var buttonChoiceThree: Button
     lateinit var buttonChoiceFour: Button
     lateinit var textViewScore: TextView
-    var score = 0
 
     companion object {
         val TAG = "MainActivity"
@@ -29,7 +28,6 @@ class MainActivity : AppCompatActivity() {
         wireWidgets()
         resizeButtonText(30.0F)
         textViewQuestion.textSize = 15.0F
-        textViewScore.text = "${resources.getString(R.string.score)}: $score"
         textViewScore.textSize = 15.0F
 
         // load questions from JSON (we will learn how to do this next class)
@@ -46,97 +44,70 @@ class MainActivity : AppCompatActivity() {
         // create a Quiz object and pass in that list of questions
         // as a parameter
         val newQuiz = Quiz(otherList)
+        textViewScore.text = "${resources.getString(R.string.score)}: ${newQuiz.getScore()}"
+
         Log.d(TAG, "Q: ${newQuiz.questions[0].question}\nC:${newQuiz.questions[0].choices}\nA:${newQuiz.questions[0].answer}")
 
         // do the initial question & answer choices setup
 
-        var questionNumber = 0
 
-        textViewQuestion.text = newQuiz.getQuestion(questionNumber)
-        var choices = newQuiz.getChoices(questionNumber)
+        textViewQuestion.text = newQuiz.getQuestion(newQuiz.questionNumber)
+        val choices = newQuiz.getChoices(newQuiz.questionNumber)
         buttonChoiceOne.text = choices[0]
         buttonChoiceTwo.text = choices[1]
         buttonChoiceThree.text = choices[2]
         buttonChoiceFour.text = choices[3]
 
         buttonChoiceOne.setOnClickListener {
-            if(questionNumber < newQuiz.questions.size - 1) {
-                score += newQuiz.checkAnswer(questionNumber, 0)
-                questionNumber++
-                textViewQuestion.text = newQuiz.getQuestion(questionNumber)
-                choices = newQuiz.getChoices(questionNumber)
+            if(newQuiz.buttonOne()) {
                 buttonChoiceOne.text = choices[0]
                 buttonChoiceTwo.text = choices[1]
                 buttonChoiceThree.text = choices[2]
                 buttonChoiceFour.text = choices[3]
-                textViewScore.text = "${resources.getString(R.string.score)}: $score"
-                Log.d(TAG, "${resources.getString(R.string.score)}: $score")
+                textViewScore.text = "${resources.getString(R.string.score)}: ${newQuiz.getScore()}"
+                Log.d(TAG, "${resources.getString(R.string.score)}: ${newQuiz.getScore()}")
             } else {
-                if(questionNumber == newQuiz.questions.size - 1) {
-                    score += newQuiz.checkAnswer(questionNumber, 0)
-                    questionNumber++
-                }
                 finished()
+                textViewScore.text = "${resources.getString(R.string.score)}: ${newQuiz.getScore()}"
             }
         }
         buttonChoiceTwo.setOnClickListener {
-            if(questionNumber < newQuiz.questions.size - 1) {
-                score += newQuiz.checkAnswer(questionNumber, 1)
-                questionNumber++
-                textViewQuestion.text = newQuiz.getQuestion(questionNumber)
-                choices = newQuiz.getChoices(questionNumber)
+            if(newQuiz.buttonTwo()) {
                 buttonChoiceOne.text = choices[0]
                 buttonChoiceTwo.text = choices[1]
                 buttonChoiceThree.text = choices[2]
                 buttonChoiceFour.text = choices[3]
-                textViewScore.text = "${resources.getString(R.string.score)}: $score"
-                Log.d(TAG, "${resources.getString(R.string.score)}: $score")
+                textViewScore.text = "${resources.getString(R.string.score)}: ${newQuiz.getScore()}"
+                Log.d(TAG, "${resources.getString(R.string.score)}: ${newQuiz.getScore()}")
             } else {
-                if(questionNumber == newQuiz.questions.size - 1) {
-                    score += newQuiz.checkAnswer(questionNumber, 1)
-                    questionNumber++
-                }
                 finished()
+                textViewScore.text = "${resources.getString(R.string.score)}: ${newQuiz.getScore()}"
             }
         }
         buttonChoiceThree.setOnClickListener {
-            if(questionNumber < newQuiz.questions.size - 1) {
-                score += newQuiz.checkAnswer(questionNumber, 2)
-                questionNumber++
-                textViewQuestion.text = newQuiz.getQuestion(questionNumber)
-                choices = newQuiz.getChoices(questionNumber)
+            if(newQuiz.buttonThree()) {
                 buttonChoiceOne.text = choices[0]
                 buttonChoiceTwo.text = choices[1]
                 buttonChoiceThree.text = choices[2]
                 buttonChoiceFour.text = choices[3]
-                textViewScore.text = "${resources.getString(R.string.score)}: $score"
-                Log.d(TAG, "${resources.getString(R.string.score)}: $score")
+                textViewScore.text = "${resources.getString(R.string.score)}: ${newQuiz.getScore()}"
+                Log.d(TAG, "${resources.getString(R.string.score)}: ${newQuiz.getScore()}")
             } else {
-                if(questionNumber == newQuiz.questions.size - 1) {
-                    score += newQuiz.checkAnswer(questionNumber, 2)
-                    questionNumber++
-                }
                 finished()
+                textViewScore.text = "${resources.getString(R.string.score)}: ${newQuiz.getScore()}"
             }
         }
         buttonChoiceFour.setOnClickListener {
-            if(questionNumber < newQuiz.questions.size - 1) {
-                score += newQuiz.checkAnswer(questionNumber, 3)
-                questionNumber++
-                textViewQuestion.text = newQuiz.getQuestion(questionNumber)
-                choices = newQuiz.getChoices(questionNumber)
+            if(newQuiz.buttonFour()) {
                 buttonChoiceOne.text = choices[0]
                 buttonChoiceTwo.text = choices[1]
                 buttonChoiceThree.text = choices[2]
                 buttonChoiceFour.text = choices[3]
-                textViewScore.text = "${resources.getString(R.string.score)}: $score"
-                Log.d(TAG, "${resources.getString(R.string.score)}: $score")
+                textViewScore.text = "${resources.getString(R.string.score)}: ${newQuiz.getScore()}"
+                Log.d(TAG, "${resources.getString(R.string.score)}: ${newQuiz.getScore()}")
             } else {
-                if(questionNumber == newQuiz.questions.size - 1) {
-                    score += newQuiz.checkAnswer(questionNumber, 3)
-                    questionNumber++
-                }
                 finished()
+                textViewScore.text = "${resources.getString(R.string.score)}: ${newQuiz.getScore()}"
             }
         }
         // set listeners to react to user input
@@ -150,7 +121,6 @@ class MainActivity : AppCompatActivity() {
         buttonChoiceFour.text = resources.getString(R.string.done)
         textViewQuestion.text = ""
         textViewScore.textSize = 30.0F
-        textViewScore.text = "${resources.getString(R.string.score)}: $score"
     }
 
     private fun resizeButtonText(size: Float) {
