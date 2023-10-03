@@ -4,7 +4,7 @@ data class Quiz(
     val questions: List<Question>
 ) {
     var score = 0
-    var questionNumber = 0
+    private var questionNumber = 0
     fun getQuestion(questionNumber: Int): String {
         val question = questions[questionNumber].question
         return question
@@ -15,7 +15,7 @@ data class Quiz(
         return choices
     }
 
-    fun checkAnswer(questionNumber: Int, choice: Int): Int {
+    private fun checkAnswer(questionNumber: Int, choice: Int): Int {
         val question = questions[questionNumber]
         val answer = question.answer
         return if(question.choices[choice] == answer) {
@@ -25,13 +25,8 @@ data class Quiz(
         }
     }
 
-    fun getScore(): Int {
-        for(question in questions) {
-            if(question.choices[0] == question.answer) {
-                score++
-            }
-        }
-        return score
+    fun getQuestionNumber(): Int {
+        return questionNumber
     }
 
     fun buttonOne(): Boolean {

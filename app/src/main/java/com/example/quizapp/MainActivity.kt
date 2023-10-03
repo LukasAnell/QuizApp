@@ -44,15 +44,15 @@ class MainActivity : AppCompatActivity() {
         // create a Quiz object and pass in that list of questions
         // as a parameter
         val newQuiz = Quiz(otherList)
-        textViewScore.text = "${resources.getString(R.string.score)}: ${newQuiz.getScore()}"
+        textViewScore.text = "${resources.getString(R.string.score)}: ${newQuiz.score}"
 
         Log.d(TAG, "Q: ${newQuiz.questions[0].question}\nC:${newQuiz.questions[0].choices}\nA:${newQuiz.questions[0].answer}")
 
         // do the initial question & answer choices setup
 
 
-        textViewQuestion.text = newQuiz.getQuestion(newQuiz.questionNumber)
-        val choices = newQuiz.getChoices(newQuiz.questionNumber)
+        textViewQuestion.text = newQuiz.getQuestion(newQuiz.getQuestionNumber())
+        var choices = newQuiz.getChoices(newQuiz.getQuestionNumber())
         buttonChoiceOne.text = choices[0]
         buttonChoiceTwo.text = choices[1]
         buttonChoiceThree.text = choices[2]
@@ -60,54 +60,62 @@ class MainActivity : AppCompatActivity() {
 
         buttonChoiceOne.setOnClickListener {
             if(newQuiz.buttonOne()) {
+                textViewQuestion.text = newQuiz.getQuestion(newQuiz.getQuestionNumber())
+                choices = newQuiz.getChoices(newQuiz.getQuestionNumber())
                 buttonChoiceOne.text = choices[0]
                 buttonChoiceTwo.text = choices[1]
                 buttonChoiceThree.text = choices[2]
                 buttonChoiceFour.text = choices[3]
-                textViewScore.text = "${resources.getString(R.string.score)}: ${newQuiz.getScore()}"
-                Log.d(TAG, "${resources.getString(R.string.score)}: ${newQuiz.getScore()}")
+                textViewScore.text = "${resources.getString(R.string.score)}: ${newQuiz.score}"
+                Log.d(TAG, "${resources.getString(R.string.score)}: ${newQuiz.score}")
             } else {
                 finished()
-                textViewScore.text = "${resources.getString(R.string.score)}: ${newQuiz.getScore()}"
+                textViewScore.text = "${resources.getString(R.string.score)}: ${newQuiz.score}"
             }
         }
         buttonChoiceTwo.setOnClickListener {
             if(newQuiz.buttonTwo()) {
+                textViewQuestion.text = newQuiz.getQuestion(newQuiz.getQuestionNumber())
+                choices = newQuiz.getChoices(newQuiz.getQuestionNumber())
                 buttonChoiceOne.text = choices[0]
                 buttonChoiceTwo.text = choices[1]
                 buttonChoiceThree.text = choices[2]
                 buttonChoiceFour.text = choices[3]
-                textViewScore.text = "${resources.getString(R.string.score)}: ${newQuiz.getScore()}"
-                Log.d(TAG, "${resources.getString(R.string.score)}: ${newQuiz.getScore()}")
+                textViewScore.text = "${resources.getString(R.string.score)}: ${newQuiz.score}"
+                Log.d(TAG, "${resources.getString(R.string.score)}: ${newQuiz.score}")
             } else {
                 finished()
-                textViewScore.text = "${resources.getString(R.string.score)}: ${newQuiz.getScore()}"
+                textViewScore.text = "${resources.getString(R.string.score)}: ${newQuiz.score}"
             }
         }
         buttonChoiceThree.setOnClickListener {
             if(newQuiz.buttonThree()) {
+                textViewQuestion.text = newQuiz.getQuestion(newQuiz.getQuestionNumber())
+                choices = newQuiz.getChoices(newQuiz.getQuestionNumber())
                 buttonChoiceOne.text = choices[0]
                 buttonChoiceTwo.text = choices[1]
                 buttonChoiceThree.text = choices[2]
                 buttonChoiceFour.text = choices[3]
-                textViewScore.text = "${resources.getString(R.string.score)}: ${newQuiz.getScore()}"
-                Log.d(TAG, "${resources.getString(R.string.score)}: ${newQuiz.getScore()}")
+                textViewScore.text = "${resources.getString(R.string.score)}: ${newQuiz.score}"
+                Log.d(TAG, "${resources.getString(R.string.score)}: ${newQuiz.score}")
             } else {
                 finished()
-                textViewScore.text = "${resources.getString(R.string.score)}: ${newQuiz.getScore()}"
+                textViewScore.text = "${resources.getString(R.string.score)}: ${newQuiz.score}"
             }
         }
         buttonChoiceFour.setOnClickListener {
             if(newQuiz.buttonFour()) {
+                textViewQuestion.text = newQuiz.getQuestion(newQuiz.getQuestionNumber())
+                choices = newQuiz.getChoices(newQuiz.getQuestionNumber())
                 buttonChoiceOne.text = choices[0]
                 buttonChoiceTwo.text = choices[1]
                 buttonChoiceThree.text = choices[2]
                 buttonChoiceFour.text = choices[3]
-                textViewScore.text = "${resources.getString(R.string.score)}: ${newQuiz.getScore()}"
-                Log.d(TAG, "${resources.getString(R.string.score)}: ${newQuiz.getScore()}")
+                textViewScore.text = "${resources.getString(R.string.score)}: ${newQuiz.score}"
+                Log.d(TAG, "${resources.getString(R.string.score)}: ${newQuiz.score}")
             } else {
                 finished()
-                textViewScore.text = "${resources.getString(R.string.score)}: ${newQuiz.getScore()}"
+                textViewScore.text = "${resources.getString(R.string.score)}: ${newQuiz.score}"
             }
         }
         // set listeners to react to user input
