@@ -76,13 +76,7 @@ class MainActivity : AppCompatActivity() {
                     score += newQuiz.checkAnswer(questionNumber, 0)
                     questionNumber++
                 }
-                buttonChoiceOne.text = "Done!"
-                buttonChoiceTwo.text = "Done!"
-                buttonChoiceThree.text = "Done!"
-                buttonChoiceFour.text = "Done!"
-                textViewQuestion.text = ""
-                textViewScore.textSize = 30.0F
-                textViewScore.text = "${resources.getString(R.string.score)}: $score"
+                finished()
             }
         }
         buttonChoiceTwo.setOnClickListener {
@@ -102,13 +96,7 @@ class MainActivity : AppCompatActivity() {
                     score += newQuiz.checkAnswer(questionNumber, 1)
                     questionNumber++
                 }
-                buttonChoiceOne.text = "Done!"
-                buttonChoiceTwo.text = "Done!"
-                buttonChoiceThree.text = "Done!"
-                buttonChoiceFour.text = "Done!"
-                textViewQuestion.text = ""
-                textViewScore.textSize = 30.0F
-                textViewScore.text = "${resources.getString(R.string.score)}: $score"
+                finished()
             }
         }
         buttonChoiceThree.setOnClickListener {
@@ -128,13 +116,7 @@ class MainActivity : AppCompatActivity() {
                     score += newQuiz.checkAnswer(questionNumber, 2)
                     questionNumber++
                 }
-                buttonChoiceOne.text = "Done!"
-                buttonChoiceTwo.text = "Done!"
-                buttonChoiceThree.text = "Done!"
-                buttonChoiceFour.text = "Done!"
-                textViewQuestion.text = ""
-                textViewScore.textSize = 30.0F
-                textViewScore.text = "${resources.getString(R.string.score)}: $score"
+                finished()
             }
         }
         buttonChoiceFour.setOnClickListener {
@@ -154,17 +136,21 @@ class MainActivity : AppCompatActivity() {
                     score += newQuiz.checkAnswer(questionNumber, 3)
                     questionNumber++
                 }
-                buttonChoiceOne.text = "Done!"
-                buttonChoiceTwo.text = "Done!"
-                buttonChoiceThree.text = "Done!"
-                buttonChoiceFour.text = "Done!"
-                textViewQuestion.text = ""
-                textViewScore.textSize = 30.0F
-                textViewScore.text = "${resources.getString(R.string.score)}: $score"
+                finished()
             }
         }
         // set listeners to react to user input
             // passing info to and from the Quiz object
+    }
+
+    private fun finished() {
+        buttonChoiceOne.text = resources.getString(R.string.done)
+        buttonChoiceTwo.text = resources.getString(R.string.done)
+        buttonChoiceThree.text = resources.getString(R.string.done)
+        buttonChoiceFour.text = resources.getString(R.string.done)
+        textViewQuestion.text = ""
+        textViewScore.textSize = 30.0F
+        textViewScore.text = "${resources.getString(R.string.score)}: $score"
     }
 
     private fun resizeButtonText(size: Float) {
