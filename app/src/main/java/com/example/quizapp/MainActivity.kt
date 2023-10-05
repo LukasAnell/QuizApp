@@ -1,5 +1,6 @@
 package com.example.quizapp
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -10,23 +11,27 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
 class MainActivity : AppCompatActivity() {
-    lateinit var layoutMain: ConstraintLayout
-    lateinit var textViewQuestion: TextView
-    lateinit var buttonChoiceOne: Button
-    lateinit var buttonChoiceTwo: Button
-    lateinit var buttonChoiceThree: Button
-    lateinit var buttonChoiceFour: Button
-    lateinit var textViewScore: TextView
+    private lateinit var layoutMain: ConstraintLayout
+    private lateinit var textViewQuestion: TextView
+    private lateinit var buttonChoiceOne: Button
+    private lateinit var buttonChoiceTwo: Button
+    private lateinit var buttonChoiceThree: Button
+    private lateinit var buttonChoiceFour: Button
+    private lateinit var textViewScore: TextView
 
     companion object {
-        val TAG = "MainActivity"
+        const val TAG = "MainActivity"
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         wireWidgets()
-        resizeButtonText(30.0F)
+        buttonChoiceOne.textSize = 30.0F
+        buttonChoiceTwo.textSize = 30.0F
+        buttonChoiceThree.textSize = 30.0F
+        buttonChoiceFour.textSize = 30.0F
         textViewQuestion.textSize = 15.0F
         textViewScore.textSize = 15.0F
 
@@ -129,13 +134,6 @@ class MainActivity : AppCompatActivity() {
         buttonChoiceFour.text = resources.getString(R.string.done)
         textViewQuestion.text = ""
         textViewScore.textSize = 30.0F
-    }
-
-    private fun resizeButtonText(size: Float) {
-        buttonChoiceOne.textSize = size
-        buttonChoiceTwo.textSize = size
-        buttonChoiceThree.textSize = size
-        buttonChoiceFour.textSize = size
     }
 
     private fun wireWidgets() {

@@ -6,13 +6,11 @@ data class Quiz(
     var score = 0
     private var questionNumber = 0
     fun getQuestion(questionNumber: Int): String {
-        val question = questions[questionNumber].question
-        return question
+        return questions[questionNumber].question
     }
 
     fun getChoices(questionNumber: Int): List<String> {
-        val choices = questions[questionNumber].choices
-        return choices
+        return questions[questionNumber].choices
     }
 
     private fun checkAnswer(questionNumber: Int, choice: Int): Int {
