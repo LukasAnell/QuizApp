@@ -27,59 +27,33 @@ data class Quiz(
         return questionNumber
     }
 
-    fun buttonOne(): Boolean {
+    private fun buttonClick(choice: Int): Boolean {
         return if(questionNumber < questions.size - 1) {
-            score += checkAnswer(questionNumber, 0)
+            score += checkAnswer(questionNumber, choice)
             questionNumber++
             true
         } else {
             if(questionNumber == questions.size - 1) {
-                score += checkAnswer(questionNumber, 0)
+                score += checkAnswer(questionNumber, choice)
                 questionNumber++
             }
             false
         }
+    }
+
+    fun buttonOne(): Boolean {
+        return buttonClick(0)
     }
 
     fun buttonTwo(): Boolean {
-        return if(questionNumber < questions.size - 1) {
-            score+= checkAnswer(questionNumber, 1)
-            questionNumber++
-            true
-        } else {
-            if(questionNumber == questions.size - 1) {
-                score += checkAnswer(questionNumber, 1)
-                questionNumber++
-            }
-            false
-        }
+        return buttonClick(1)
     }
 
     fun buttonThree(): Boolean {
-        return if(questionNumber < questions.size - 1) {
-            score += checkAnswer(questionNumber, 2)
-            questionNumber++
-            true
-        } else {
-            if(questionNumber == questions.size - 1) {
-                score += checkAnswer(questionNumber, 2)
-                questionNumber++
-            }
-            false
-        }
+        return buttonClick(2)
     }
 
     fun buttonFour(): Boolean {
-        return if(questionNumber < questions.size - 1) {
-            score += checkAnswer(questionNumber, 3)
-            questionNumber++
-            true
-        } else {
-            if(questionNumber == questions.size - 1) {
-                score += checkAnswer(questionNumber, 3)
-                questionNumber++
-            }
-            false
-        }
+        return buttonClick(3)
     }
 }
